@@ -24,6 +24,12 @@ main {
 
 .ant-tabs-content-holder {
 }
+.fixedbutton {
+  padding:0.5rem;
+  position: absolute;
+  top: 0px;
+  right: 0px; 
+}
 
 ::-webkit-scrollbar {
   width: 5px;

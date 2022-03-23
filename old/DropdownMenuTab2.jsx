@@ -2,10 +2,31 @@ import { Menu, Dropdown } from "antd";
 import { RiFullscreenFill, RiMore2Fill } from "react-icons/ri";
 import { MdOutlineOpenInNew } from "react-icons/md";
 import { VscSplitHorizontal, VscSplitVertical } from "react-icons/vsc";
-import "../displaylayout/displaylayout.css"
-
+import { getTheme } from "../toggletheme/ToggleTheme";
+import { useEffect, useState } from "react";
 
 export default function DropdownMenuTab() {
+  const [fullScreen, setFullScreen] = useState(false);
+
+  useEffect();
+
+  const toggleFullScreen = (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+      setFullScreen(!fullScreen);
+      const divEl = document.getElementById(
+        document
+          .getElementsByClassName("ant-tabs-tab-active")[0]
+          .children[0].getAttribute("aria-controls")
+      );
+      const bgColor = window
+        .getComputedStyle(document.body, null)
+        .getPropertyValue("background-color");
+      console.log(bgColor);
+      divEl.style = `background-color: ${bgColor}`;
+      divEl.requestFullscreen();
+    }, 1);
+  };
 
   const menuTabDropdown = (
     <Menu>
@@ -38,15 +59,7 @@ export default function DropdownMenuTab() {
           target="_blank"
           rel="noopener noreferrer"
           href="/"
-          onClick={(e) => {
-            e.preventDefault();
-            const divEl = document.getElementById(
-              document
-                .getElementsByClassName("ant-tabs-tab-active")[0]
-                .children[0].getAttribute("aria-controls")
-            );
-
-          }}
+          onClick={(e) => toggleFullScreen(e)}
         >
           <RiFullscreenFill /> Pantalla completa
         </a>

@@ -7,21 +7,12 @@
   align-items: center;
   justify-content: center;
 
-  .appSwitch{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
 
-
-  // .header{
-  //   display: flex;
-  //   flex-direction: row;
-  //   position: "fixed";
-	// 				z-index: 1;
-	// 				width: "100%";
-  // }
+}
+.appSwitch{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 

@@ -32,8 +32,14 @@ const systemTheme = () =>
     ? "dark"
     : "light";
 
-export const getTheme = () =>
-  (localStorage.getItem("theme") as Theme) || systemTheme();
+export const getTheme = ():Theme =>{
+  const tmp = localStorage.getItem("theme") || systemTheme();
+  const light: Theme = "light";
+  const dark: Theme = "dark";
+  return tmp === "light" ?  light : dark; 
+  
+}
+  // (localStorage.getItem("theme") as Theme) || systemTheme();
 
 export const setTheme = (t: Theme) => {
   localStorage.setItem("theme", t);

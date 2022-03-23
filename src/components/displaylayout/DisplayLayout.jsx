@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
+import { FullScreen, useFullScreenHandle } from "react-full-screen";
 import ToggleTheme, { getTheme, setTheme } from "../toggletheme/ToggleTheme";
+import { RiFullscreenFill } from "react-icons/ri";
 import "./displaylayout.css";
 //Apps
 import Main from "../../apps/main/Main";
@@ -18,14 +20,16 @@ const Components = {
   Main: <Main />,
   AppExample: <AppExample />,
   DatabaseOutlined: <DatabaseOutlined />,
-  DropdownMenuTab: <DropdownMenuTab />
+  DropdownMenuTab: <DropdownMenuTab />,
 };
 
 export default function DisplayLayout() {
   const [state, setState] = useState({
     activeKey: panes[0].key,
-    panes
+    panes,
   });
+  const handle = Array.from({length: panes.length}, (v) => useFullScreenHandle());
+
   const [visible, setVisible] = useState(false);
   useEffect(() => setTheme(getTheme()), []);
 
@@ -43,7 +47,7 @@ export default function DisplayLayout() {
       content: "New Tab Pane",
       options: <DropdownMenuTab />,
       key: addKey,
-      closable: true
+      closable: true,
     });
     setState({ activeKey: addKey, panes });
   };
@@ -126,7 +130,7 @@ export default function DisplayLayout() {
             position: "fixed",
             zIndex: 1,
             width: "100%",
-            height: "30px"
+            height: "30px",
           }}
         ></Header>
         <Content
@@ -134,7 +138,7 @@ export default function DisplayLayout() {
           style={{
             padding: "0",
             marginTop: 0,
-            height: "calc(100vh - 60px)"
+            height: "calc(100vh - 60px)",
           }}
         >
           <Tabs
@@ -145,7 +149,7 @@ export default function DisplayLayout() {
             type="editable-card"
             onEdit={onEdit}
           >
-            {state.panes.map((pane) => {
+            {state.panes.map((pane, i) => {
               return (
                 <TabPane
                   tab={
@@ -158,7 +162,14 @@ export default function DisplayLayout() {
                   key={pane.key}
                   closable={pane.closable}
                 >
-                  {Components[pane.content]}
+                  <div>
+                    <a href="/" target="_blank" rel="noopener noreferrer" className="fixedbutton" onClick={handle[i].enter}>
+                      <RiFullscreenFill />
+                    </a>
+                    <FullScreen handle={handle[i]}>
+                      {Components[pane.content] || pane.content}
+                    </FullScreen>
+                  </div>
                 </TabPane>
               );
             })}
