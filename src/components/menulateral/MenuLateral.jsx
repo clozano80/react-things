@@ -7,7 +7,7 @@ export default function MenuLateral({ add, panes, setVisible }) {
 
 	const showModal = () => {
 		setIsModalVisible(true);
-	};
+	}; 
 
 	const handleCancel = () => {
 		setIsModalVisible(false);

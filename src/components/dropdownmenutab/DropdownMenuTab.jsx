@@ -18,7 +18,7 @@ export default function DropdownMenuTab() {
             e.preventDefault();
           }}
         >
-          <VscSplitVertical /> División vertical
+          <VscSplitVertical /> Divisiรณn vertical
         </a>
       </Menu.Item>
       <Menu.Item key="1">
@@ -30,7 +30,7 @@ export default function DropdownMenuTab() {
             e.preventDefault();
           }}
         >
-          <VscSplitHorizontal /> División horizontal
+          <VscSplitHorizontal /> Divisiรณn horizontal
         </a>
       </Menu.Item>
       <Menu.Item key="2">
@@ -66,7 +66,7 @@ export default function DropdownMenuTab() {
     </Menu>
   );
 
-  return (
+  return ( 
     <Dropdown overlay={menuTabDropdown}>
       <a
         key="0"

@@ -13,7 +13,7 @@ import { Tabs, Menu, Layout, Drawer } from 'antd';
 import { BsMenuButtonWide } from 'react-icons/bs';
 import { DatabaseOutlined } from '@ant-design/icons';
 const { TabPane } = Tabs;
-const { Header, Content, Footer } = Layout;
+const { Header, Content, Footer } = Layout; 
 
 let panes = require('../../panes.json');
 
