@@ -6,15 +6,15 @@ type Theme = "light" | "dark";
 
 //local stylesheets should be placed in the public folder
 
-const stylesheets = {
-  light: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.19.1/antd.min.css",
-  dark: "styles/antd.darkgray.css"
-};
-
 // const stylesheets = {
 //   light: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.19.1/antd.min.css",
-//   dark: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.19.1/antd.dark.min.css"
+//   dark: "styles/antd.darkgray.css"
 // };
+
+const stylesheets = {
+  light: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.19.1/antd.min.css",
+  dark: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.19.1/antd.dark.min.css"
+};
 
 const createStylesheetLink = (): HTMLLinkElement => {
   const link = document.createElement("link");

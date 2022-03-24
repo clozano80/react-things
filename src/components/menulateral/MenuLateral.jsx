@@ -1,8 +1,10 @@
 import ToggleTheme, { getTheme, setTheme } from '../toggletheme/ToggleTheme';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, Modal, Button } from 'antd';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-export default function MenuLateral({ add, panes, setVisible }) {
+
+export default function MenuLateral({ add, enabledApps, setVisible }) {
+
 	const [isModalVisible, setIsModalVisible] = useState(false);
 
 	const showModal = () => {
@@ -35,7 +37,7 @@ export default function MenuLateral({ add, panes, setVisible }) {
 			</Menu>
 			<Modal title="Seleccion" visible={isModalVisible} footer={null} onCancel={handleCancel}>
 				<Menu>
-					{panes.map((pane, i) => (
+					{enabledApps.map((app, i) => (
 						<Menu.Item key={i}>					
 							<a
 								target="_blank"
@@ -43,10 +45,11 @@ export default function MenuLateral({ add, panes, setVisible }) {
 								href="/"
 								onClick={(e) => {
 									e.preventDefault();
-									add(pane);
+									add(app);
+									setIsModalVisible(false);
 								}}
 							>
-								+ {pane.title}
+								+ {app.title}
 							</a>
 						</Menu.Item>
 					))}

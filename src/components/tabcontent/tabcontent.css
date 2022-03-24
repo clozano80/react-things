@@ -1,0 +1,12 @@
+.fsWrapperWhite{
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: #f0f2f5;
+}
+.fsWrapperDark{
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}

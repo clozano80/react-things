@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Extra tab 1",
+    "icon": "",
+    "content": "Main",
+    "options": "DropdownMenuTab",
+    "closable": true
+  },
+  {
+    "title": "Extra tab 2",
+    "icon": "",
+    "content": "AppExample",
+    "options": "DropdownMenuTab",
+    "closable": true
+  }
+]
